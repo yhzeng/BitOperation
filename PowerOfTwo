@@ -1,0 +1,5 @@
+//Determin if a given integer is power of 2.
+
+public boolean isPowerOfTwo(int number){
+  return number > 0 && (number - 1 & number) == 0;
+}
