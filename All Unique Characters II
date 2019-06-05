@@ -1,0 +1,21 @@
+//Determine if the characters of a given string are all unique.
+//We are using ASCII charset, the value of valid characters are from 0 to 255.
+//The given string is not null.
+
+//Time: O(n)
+//Space: O(1)
+
+public boolean allUnique(String word){
+  int[] bitVector = new int[8];
+  for (int i = 0; i < word.length(); i++){
+    int c = word.charAt(i);
+    int row = c / 32;
+    int col = c % 32;
+    if((bitVector[row] & (1 << col)) != 0){
+      return false;
+    }else {
+      bitVector[row] |= (1 << col);
+    }
+  }
+  return true;
+}
